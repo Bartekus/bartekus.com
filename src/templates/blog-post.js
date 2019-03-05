@@ -19,28 +19,16 @@ class Translations extends React.Component {
   render() {
     let { translations, lang, languageLink, editUrl } = this.props;
 
-    let readerTranslations = translations.filter(lang => lang !== 'ru');
-    let hasRussianTranslation = translations.indexOf('ru') !== -1;
-
     return (
       <div className="translations">
         <Panel style={{ fontFamily: systemFont }}>
           {translations.length > 0 && (
             <span>
-              {hasRussianTranslation && (
-                <span>
-                  Originally written in: {'en' === lang ? <b>{codeToLanguage('en')}</b> : <Link to={languageLink('en')}>English</Link>}
-                  {' • '}
-                  {'ru' === lang ? <b>Русский (авторский перевод)</b> : <Link to={languageLink('ru')}>Русский (авторский перевод)</Link>}
-                  <br />
-                  <br />
-                </span>
-              )}
-              <span>Translated by readers into: </span>
-              {readerTranslations.map((l, i) => (
+              <span>Translated into: </span>
+              {translations.map((l, i) => (
                 <React.Fragment key={l}>
                   {l === lang ? <b>{codeToLanguage(l)}</b> : <Link to={languageLink(l)}>{codeToLanguage(l)}</Link>}
-                  {i === readerTranslations.length - 1 ? '' : ' • '}
+                  {i === translations.length - 1 ? '' : ' • '}
                 </React.Fragment>
               ))}
             </span>
