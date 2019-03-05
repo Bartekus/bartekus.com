@@ -4,7 +4,7 @@
   "private": true,
   "version": "1.0.0",
   "homepage": "https://bartekus.com",
-  "description": "A Gatsby based personal website/blog",
+  "description": "A Gatsby based personal website/blog of Bartek Kus",
   "scripts": {
     "dev": "gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
@@ -12,9 +12,6 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "build": "rm -rf public && rm -rf .cache && gatsby build",
-    "now-build": "gatsby build",
-    "deploy": "yarn build && cp now.json public/ && cd public && now alias $(now) overreacted.io",
-    "dry": "yarn build && cp now.json public/ && cd public && now"
   },
   "keywords": [
     "gatsby",
