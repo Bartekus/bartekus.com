@@ -14,7 +14,7 @@ function validate(firstName, email) {
 }
 
 function Signup(props) {
-  const [registered, setRegistered] = useState(() => JSON.parse(localStorage.getItem('registered')) || false);
+  const [registered, setRegistered] = useState(() => (typeof window !== 'undefined' && JSON.parse(localStorage.getItem('registered'))) || false);
   const [sayThankYou, setSayThankYou] = useState(false);
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
