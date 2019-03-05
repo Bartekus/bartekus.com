@@ -35,7 +35,7 @@ module.exports = {
   githubRepoName: 'bartekus.com', // The name of the repo that this project will use
 
   // Social component
-  linkedin: '',
+  linkedin: 'https://www.linkedin.com/in/bartekus',
   twitter: 'https://mobile.twitter.com/bartekus',
   twitterHandle: '@bartekus',
   github: 'https://github.com/bartekus',
