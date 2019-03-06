@@ -91,13 +91,7 @@ function Signup(props) {
     <div> </div>
   ) : (
     <StyledForm>
-      <form
-        id="sender-subscribe"
-        className="gform"
-        method="POST"
-        // action="https://script.google.com/macros/s/AKfycbwETvprOrQwc0pNi4awRY-EdHR3Lsfq2sG4ZNiv/exec"
-        min-width="400 500 600 700 800"
-      >
+      <form id="sender-subscribe" className="gform" method="POST" min-width="400 500 600 700 800">
         <div data-style="full">
           <div data-element="column" className="gform-column">
             <h1 className="gform-header" data-element="header">
