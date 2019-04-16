@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/blog your pathPrefix should be "blog"
   siteTitle: 'Bartekus.com', // Navigation and Site Title
-  siteTitleAlt: "It's a Code Craft Life", // Alternative Site title for SEO
+  siteTitleAlt: "Code Crafter's Life", // Alternative Site title for SEO
   siteTitleShort: 'A personal blog', // short_name for manifest
   siteUrl: 'https://bartekus.com', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
@@ -10,13 +10,10 @@ module.exports = {
   siteKeywords: ['gatsby, react, babel, webpack, software engineering, programming, development, hacking, node, javascript'],
   author: 'Bartek Kus', // Author for schemaORGJSONLD
   authorMinibio: `
-  <p>I'm a pragmatic full-stack software engineer with over six years experience at both small start-ups & medium organizations,
+  A pragmatic full-stack software engineer with over six years experience at both small start-ups & medium organizations,
     and extensive proficiency in building scalable backend services,
     dev-ops continuous integration & continuous delivery pipelines,
-    and user centric frontend interfaces.</p>
-  <p>I'm attracted to solving real customer problems with a business justification,
-    and I'm looking for a senior individual contribution role where I can take collaborative team leadership responsibilities,
-    and gain experience with architecture and project management.</p>
+    and user centric frontend interfaces.
   `,
 
   organization: 'araphel.org',

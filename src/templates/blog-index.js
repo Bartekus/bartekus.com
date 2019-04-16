@@ -9,8 +9,19 @@ import Footer from '../components/Footer';
 import { formatPostDate, formatReadingTime } from '../utils/helpers';
 import { rhythm } from '../utils/typography';
 import Panel from '../components/Panel';
+import Modal from '../components/Modal';
+import Resume from '../components/Resume';
 
 class BlogIndexTemplate extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { openModal: false };
+  }
+
+  handleResumeModal = () => {
+    this.setState({ openModal: !this.state.openModal });
+  };
+
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title');
     const langKey = this.props.pageContext.langKey;
@@ -22,7 +33,7 @@ class BlogIndexTemplate extends React.Component {
         <SEO />
         <aside>
           <Bio />
-          <Footer />
+          <Footer openResumeModal={() => this.handleResumeModal()} />
         </aside>
         <main>
           {langKey !== 'en' && <Panel>These articles have been translated.</Panel>}
@@ -54,6 +65,9 @@ class BlogIndexTemplate extends React.Component {
               );
             })}
         </main>
+        <Modal open={this.state.openModal} closeModal={() => this.handleResumeModal()}>
+          <Resume />
+        </Modal>
       </Layout>
     );
   }
