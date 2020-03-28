@@ -29,6 +29,15 @@ exports.createPages = ({ graphql, actions }) => {
       });
     });
 
+    /*
+    fields {
+      slug
+      langKey
+      directoryName
+      maybeAbsoluteLinks
+    }
+     */
+
     resolve(
       graphql(
         `
@@ -40,7 +49,6 @@ exports.createPages = ({ graphql, actions }) => {
                     slug
                     langKey
                     directoryName
-                    maybeAbsoluteLinks
                   }
                   frontmatter {
                     title

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import profilePic from '../assets/profile-pic.png';
+import profilePic from '../assets/profile-pic.jpg';
 import { rhythm } from '../utils/typography';
 import config from '../../config/website';
 
