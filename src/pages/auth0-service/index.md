@@ -1,12 +1,13 @@
 ---
-title: auth0 Service
-date: '2019-01-26'
+title: Auth0 Service
+date: '2019-02-01'
 spoiler: An example of auth0 EventEmitter based service.
 ---
 
-Since authentication is quite a vital part of any web-app, I'm going to demonstrate how to implement it as a service in CRA.
-This service will extend the EventEmitter so that the act of login in or out can be broadcast as an event.
+Since authentication is quite a vital part of any web-app, I'm going to demonstrate how to implement it as a singleton service in CRA.
+This service will extend the EventEmitter so that the act of login in or out can be broadcast as an event and observed within or outside of our app.
 
+> `src/services/auth`
 ```js
 import auth0 from 'auth0-js';
 import EventEmitter from 'events';
@@ -40,18 +41,6 @@ class AuthService extends EventEmitter {
     webAuth.authorize({
       appState: customState,
       mode: 'signUp',
-    });
-  };
-
-  cookieLogin = idToken => {
-    this.idToken = idToken;
-    this.accessToken = idToken;
-    this.accessTokenExpiry = new Date(Date.now() + 900000000);
-
-    localStorage.setItem(localStorageKey, 'true');
-
-    this.emit(loginEvent, {
-      loggedIn: true,
     });
   };
 
@@ -143,9 +132,23 @@ export default new AuthService();
 Please note that we are passing the auth0 credentials to the service using environmental variables.
 This means that at the root of our CRA we'll have an `.env` file with the required info as such:
 
+> `.env`
 ```bash
 REACT_APP_AUTH0_DOMAIN=<YOUR-AUTH0-DOMAIN>
 REACT_APP_AUTH0_CLIENT_ID=<YOUR-AUTH0-CLIENT-ID>
 REACT_APP_AUTH0_AUDIENCE=<YOUR-AUTH0-AUDIENCE>
 
 ```
+
+The rest of the implementation should be pretty self explanatory, however there are few key point that need to be addressed.
+
+First `const homepage = process.env.PUBLIC_URL` allows us to serve our CRA from subdirectory which we would define using `homepage` field in our package.json
+> For example, if you are deploying your CRA build into `cra` directory that's at the root of your domain, let say `https://myawesomesite.com/cra`,
+> then you would add `"homepage": "/cra/",` to your CRA's package.json and CRA will take care of the rest for us.
+
+This way also enables our auth0 service to properly function in development and production without having to modify the callback URL for each environment.
+
+Second, as you might have observed, we do not persist our token, and only write `loggedIn` boolean to our localStorage.
+> We do this to ensure maximum security for our token, and while there is a bit more overhead with this approach, the security is well worth it in my humble opinion.
+
+In the next chapter we will look how this implementation will be used when combined with redux & redux-saga as part of the `Modular Redux` approach.
