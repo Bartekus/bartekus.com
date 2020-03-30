@@ -16,7 +16,7 @@ const directory = {
 
   user: {
     password: {
-      reset: ({user}) => ({ path: `/api/user/${user}/password/reset`, method: 'post' }),
+      reset: () => ({ path: `/api/user/password/reset`, method: 'post' }),
     },
   }
 };
