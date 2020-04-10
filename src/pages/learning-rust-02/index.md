@@ -67,4 +67,7 @@ Alternatively we can do it like this also:
 
 In both cases we specify that we'd want our numbers to be u8, or 8-bit unsigned integer.
 
+If there is one aspect regarding arrays, and their types to remember here, is that their size is in fact part of their type.
+That is [1u8, 2, 3, 4, 5] is not the same type as [1u8, 2, 3, 4] since the former is [u8;5] while the latter is [u8;4].
+
 Next lets look into previously mentioned vectors.
