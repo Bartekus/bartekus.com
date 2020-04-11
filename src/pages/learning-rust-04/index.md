@@ -124,4 +124,4 @@ and as such the subsequent attempt to use `numbers` again inside the `print` fun
 
 That being said, aside from using `iter()` the only thing that changed about our `output_sequence` function is its type signature.
 
-Next, lets explore how we can make this work for array and vectors with minimal changes to existing code.
+Next, lets explore how we can make this work for arrays and vectors with minimal changes to existing code.
