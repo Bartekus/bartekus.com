@@ -101,8 +101,8 @@ class BlogPostTemplate extends React.Component {
                   marginTop: rhythm(-4 / 5),
                 }}
               >
-                {formatPostDate(post.frontmatter.date, lang)}
-                {` • ${formatReadingTime(post.timeToRead)}`}
+                {/*{formatPostDate(post.frontmatter.date, lang)}*/}
+                {`${formatReadingTime(post.timeToRead)}`}
               </p>
               {translations.length > 0 && <Translations translations={translations} editUrl={editUrl} languageLink={languageLink} lang={lang} />}
             </header>
@@ -181,6 +181,14 @@ class BlogPostTemplate extends React.Component {
 
 export default BlogPostTemplate;
 
+/*
+frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        spoiler
+      }
+ */
+
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
@@ -202,7 +210,6 @@ export const pageQuery = graphql`
       timeToRead
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
         spoiler
       }
       fields {

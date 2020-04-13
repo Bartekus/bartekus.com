@@ -56,8 +56,8 @@ class BlogIndexTemplate extends React.Component {
                       </Link>
                     </h3>
                     <small>
-                      {formatPostDate(node.frontmatter.date, 'en')}
-                      {` • ${formatReadingTime(node.timeToRead)}`}
+                      {/*{formatPostDate(node.frontmatter.date, 'en')}*/}
+                      {`${formatReadingTime(node.timeToRead)}`}
                     </small>
                   </header>
                   <p dangerouslySetInnerHTML={{ __html: node.frontmatter.spoiler }} />
@@ -74,6 +74,14 @@ class BlogIndexTemplate extends React.Component {
 }
 
 export default BlogIndexTemplate;
+
+/*
+frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            spoiler
+          }
+ */
 
 export const pageQuery = graphql`
   query($langKey: String!) {
@@ -92,7 +100,6 @@ export const pageQuery = graphql`
           }
           timeToRead
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
             title
             spoiler
           }
